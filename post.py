@@ -43,14 +43,7 @@ class Post(object):
         post_data = Database.find_one(collection="posts", query={"id": id})
         
         # Retrieving Post object instead of post_data variable.
-        return Post(
-        blog_id = post_data["blog_id"],
-        title = post_data["title"],
-        author = post_data["author"], 
-        content = post_data["content"], 
-        date = post_data["date"], 
-        id = post_data["id"]
-        )
+        return Post(**post_data)
 
         
     # Finding post with blog_id and retrieving all the posts for the same blog_id.
